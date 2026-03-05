@@ -19,15 +19,19 @@ This project is a comparative study of the dynamics of the spin-½ XXX Heisenber
 *Analysis: By observing the wave behavior in figure 2 we can extrapolate the site’s spin state at a given time. when t=0, 3.25 and 6 (1∕J) the probability of a spin down is 100% in contrast when the probability is 0% that means that the site is in a spin up state ,furthermore the intervals between 0% and 100% exist in a superposition of |1⟩ and |0⟩.*
 
 ![Simulation Plot](visualizations/Simulator3.png)
+
 *Figure 3: a graph of simulated spin down probability of site 0 as a function of time at N=3 using an Aer simulator.*
 
 ![Simulation Plot](visualizations/Hardware3.png)
+
 *Figure 4: a graph of simulated spin down probability of site 0 as a function of time at N=3 using a quantum computer.*
 
 ![Simulation Plot](visualizations/Simulator15.png)
+
 *Figure 5: a graph of simulated spin down probability of site 0 as a function of time at N=15 using an Aer simulator.*
 
 ![Simulation Plot](visualizations/Hardware15.png)
+
 *Figure 6: a graph of simulated spin down probability of site 0 as a function of time at N=15 using a quantum computer.*
 
 *Analysis: Trotter error builds up, causing its oscillations to drift out of phase when compared with the exact curve. Examining the shallower circuits at N=3 (Figure 3) shows very good agreement between the simulator and the same N=3 circuit on real hardware (Figure 4) given that it captures the correct peak and trough locations despite device noise. By contrast, at N=15(Figure 6) the deeper hardware circuit suffers significant decoherence and gate errors, which severely distort the waveform. This comparison highlights that the noise free Aer simulator can push to higher Trotter order without degradation, whereas the real-world quantum hardware is constrained by a tradeoff between circuit depth —Trotter accuracy— and noise resilience.
