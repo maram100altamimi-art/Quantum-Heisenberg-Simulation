@@ -10,7 +10,7 @@ This project implements a classical and quantum-inspired simulation of spin dyna
 - **Data Visualization:** Probability distribution plots for spin states.
 
 ## 📊 Sample Results
-![images](link_to_your_graph_image)
+![Simulation Plot](Exact.png)
 *Description: Probability of spin-down occupation over time.*
 ## 🛠️ Tech Stack
 - **Language:** Python 3.x
