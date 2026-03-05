@@ -1,45 +1,50 @@
 # Quantum-Heisenberg-Simulation
 Numerical simulation of spin dynamics in hexagonal lattices using Python and Qiskit.
-# Quantum Dynamics: Heisenberg Model Simulation
-This project is a comparative study of the dynamics of the spin-½ XXX Heisenberg model on a single hexagon extracted from a honeycomb lattice by using classical and quantum computing methods. We simulate the spin dynamics and track the probability of finding a chosen lattice site in a spin down state as a function of time on both the Aer simulator and IBM’s noisy quantum hardware using Suzuki –Trotter decomposition. This is then compared with the exact computation. The results show behavior similar to the exact calculations. However, with more trotter steps, the circuit depth increases, and hardware errors begin to distort the outcomes. Nevertheless, the simulator remains closely aligned with the classical results as the trotter steps increase. This highlights the limitations caused by noisy hardware yet signals strong potential for quantum devices once they are fully developed. 
+
+## 📌 Project Overview
+This project is a comparative study of the dynamics of the **spin-½ XXX Heisenberg model** on a single hexagon extracted from a honeycomb lattice. It utilizes both classical numerical methods and quantum computing approaches. We track the probability of finding a chosen lattice site in a spin-down state as a function of time, comparing results from:
+* **Exact Classical Computation** (SciPy)
+* **Aer Quantum Simulator** (Noise-free)
+* **IBM Quantum Hardware** (Noisy environment)
 
 ## 🚀 Key Features
-- **Lattice Modeling:** Hexagonal topology generated via NetworkX.
-- **Exact Simulation:** Time evolution using SciPy's matrix exponentiation.
-- **Quantum-Ready:** Built-in Trotterization logic using Qiskit.
-- **Data Visualization:** Probability distribution plots for spin states.
+* **Lattice Modeling:** Hexagonal topology generated via `NetworkX`.
+* **Exact Simulation:** Time evolution using `SciPy` matrix exponentiation.
+* **Quantum-Ready:** Built-in Trotterization logic (Suzuki–Trotter decomposition) using `Qiskit`.
+* **Hardware Validation:** Comparative analysis of noise impact on real quantum devices.
 
-## 📊 Sample Results
-![Simulation Plot](visualizations/Lattice.png)
+## 📊 Results & Analysis
 
-*Figure 1: Hexagonal lattice topology (N=6) generated using NetworkX to define spin-spin interaction edges*
-![Simulation Plot](visualizations/Exact.png)
-*Figure 2:Exact classical simulation using SciPy matrix exponentiation, representing the ideal noise-free behavior of the Heisenberg model.*
+### 1. System Configuration
+The simulation begins by defining the hexagonal interaction edges for a 6-qubit system.
+![Lattice Topology](./visualizations/lattice.png)
+*Figure 1: Hexagonal lattice topology (N=6).*
 
-*Analysis: By observing the wave behavior in figure 2 we can extrapolate the site’s spin state at a given time. when t=0, 3.25 and 6 (1∕J) the probability of a spin down is 100% in contrast when the probability is 0% that means that the site is in a spin up state ,furthermore the intervals between 0% and 100% exist in a superposition of |1⟩ and |0⟩.*
+### 2. Theoretical Baseline (Exact vs. Simulator)
+We established an ideal benchmark using classical exact diagonalization and compared it with the noise-free Aer simulator.
+| Exact Classical Simulation | Aer Simulator (15 Steps) |
+| :---: | :---: |
+| ![Exact Simulation](./visualizations/Exact.png) | ![Simulator Output](./visualizations/simulator15.png) |
+*Figure 2 & 3: Comparison between ideal classical theory and noise-free quantum simulation.*
 
-![Simulation Plot](visualizations/Simulator3.png)
+**Analysis:** By observing the wave behavior, we extrapolate the site’s spin state at given time intervals. The Aer simulator (Figure 3) shows excellent alignment with the exact results as Trotter steps increase, validating the algorithmic logic in an ideal environment.
 
-*Figure 3: Quantum simulation on the Aer Simulator (3 Trotter steps).agrees with the hardware results yet still inaccurate compared  to the exact classical simulation*
+### 3. Hardware Execution & Noise Analysis
+To test real-world viability, the circuit was executed on IBM Quantum hardware.
+| Hardware Execution (Low Depth) | Hardware Execution (High Depth) |
+| :---: | :---: |
+| ![Hardware Low](./visualizations/Hardware3.png) | ![Hardware High](./visualizations/Hardware15.png) |
+*Figure 4 & 5: Impact of circuit depth on real quantum hardware performance.*
 
-![Simulation Plot](visualizations/Hardware3.png)
-
-*Figure 4: Execution on real IBM Quantum hardware (3 Trotter steps). agrees with the hardware results yet still inaccurate to the exact yet still inaccurate compared to the exact classical simulation*
-
-![Simulation Plot](visualizations/Simulator15.png)
-
-*Figure 5:Quantum simulation on the Aer Simulator (15 Trotter steps). agrees well with the exact classical simultion as a result to a deeper circuit in an ideal inviorment*
-
-![Simulation Plot](visualizations/Hardware15.png)
-
-*Figure 6: Execution on real IBM Quantum hardware (15 Trotter steps). This demonstrates the impact of device decoherence and gate errors on deep quantum circuits.*
-
-*Analysis: Trotter error builds up, causing its oscillations to drift out of phase when compared with the exact curve. Examining the shallower circuits at N=3 (Figure 3) shows very good agreement between the simulator and the same N=3 circuit on real hardware (Figure 4) given that it captures the correct peak and trough locations despite device noise. By contrast, at N=15(Figure 6) the deeper hardware circuit suffers significant decoherence and gate errors, which severely distort the waveform. This comparison highlights that the noise free Aer simulator can push to higher Trotter order without degradation, whereas the real-world quantum hardware is constrained by a tradeoff between circuit depth —Trotter accuracy— and noise resilience.
-this honeycomb Heisenberg simulation not only probes many-body physics but also deliver valuable feedback to hardware developers. For example, the textbook decomposition:
-R_XX (θ)⟶CNOT-R_ZX (π/2)-CNOT
-on IBM devices requires two full-strength cross resonance R_ZX (π/2) pulses plus single qubit rotations. Instead, one can directly implement R_XX (θ), R_YY (θ) and R_ZZ (θ) issuing a single partial cross resonance pulse R_ZX (θ)  sandwiched by calibrated single qubit gates[1]. This shortcut halves the two qubit pulse count, trims average rotation angles, and measurably reduces error. It’s precisely this kind of insight—born from user experiments on real circuits—that helps hardware developers optimize native gate primitives and push toward ever more reliable quantum processors.*
-
+**Key Findings:** * **Trotter Accuracy vs. Noise:** While increasing Trotter steps improves theoretical accuracy, it also increases circuit depth. 
+* **Decoherence:** At higher steps (N=15, Figure 5), the deeper hardware circuit suffers significant decoherence and gate errors, distorting the waveform compared to the shallow circuit (N=3, Figure 4).
+* **Hardware Optimization:** These insights help developers optimize native gate primitives, such as implementing direct R_XX/R_YY/R_ZZ pulses to reduce CNOT counts and minimize error.
 
 ## 🛠️ Tech Stack
-- **Language:** Python 3.x
-- **Libraries:** NumPy, SciPy, Qiskit, Matplotlib, NetworkX
+* **Language:** Python 3.x
+* **Quantum Framework:** Qiskit
+* **Numerical Libraries:** NumPy, SciPy
+* **Network & Viz:** NetworkX, Matplotlib
+
+## 📜 References
+[1] Optimized Gate Decompositions for IBM Quantum Hardware.
