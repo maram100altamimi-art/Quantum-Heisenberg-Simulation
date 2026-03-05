@@ -24,7 +24,7 @@ The simulation begins by defining the hexagonal interaction edges for a 6-qubit 
 We established an ideal benchmark using classical exact diagonalization and compared it with the noise-free Aer simulator.
 | Exact Classical Simulation | Aer Simulator (15 Steps) |
 | :---: | :---: |
-| ![Exact Simulation](./visualizations/Exact.png) | ![Simulator Output](./visualizations/simulator15.png) |
+| ![Exact Simulation](./visualizations/Exact.png) | ![Simulator Output](./visualizations/Simulator15.png) |
 *Figure 2 & 3: Comparison between ideal classical theory and noise-free quantum simulation.*
 
 **Analysis:** By observing the wave behavior, we extrapolate the site’s spin state at given time intervals. The Aer simulator (Figure 3) shows excellent alignment with the exact results as Trotter steps increase, validating the algorithmic logic in an ideal environment.
