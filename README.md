@@ -14,7 +14,7 @@ This project is a comparative study of the dynamics of the spin-½ XXX Heisenber
 
 *Figure 1: Hexagonal lattice topology (N=6) generated using NetworkX to define spin-spin interaction edges*
 ![Simulation Plot](visualizations/Exact.png)
-*figure 2:Exact classical simulation using SciPy matrix exponentiation, representing the ideal noise-free behavior of the Heisenberg mode*
+*Figure 2:Exact classical simulation using SciPy matrix exponentiation, representing the ideal noise-free behavior of the Heisenberg model.*
 
 *Analysis: By observing the wave behavior in figure 2 we can extrapolate the site’s spin state at a given time. when t=0, 3.25 and 6 (1∕J) the probability of a spin down is 100% in contrast when the probability is 0% that means that the site is in a spin up state ,furthermore the intervals between 0% and 100% exist in a superposition of |1⟩ and |0⟩.*
 
