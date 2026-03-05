@@ -12,6 +12,7 @@ This project implements a classical and quantum-inspired simulation of spin dyna
 ## 📊 Sample Results
 ![Simulation Plot](Exact.png)
 *Description: Probability of spin-down occupation over time.*
+
 ![Simulation Plot](lattice.png)
 *Description: lattice configeration*
 ## 🛠️ Tech Stack
