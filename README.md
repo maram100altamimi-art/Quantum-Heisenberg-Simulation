@@ -15,6 +15,7 @@ This project implements a classical and quantum-inspired simulation of spin dyna
 *figure 1: lattice configeration*
 ![Simulation Plot](visualizations/Exact.png)
 *figure 2: Probability of spin-down occupation over time.*
+
 *analysis: By observing the wave behavior in figure 2 we can extrapolate the site’s spin state at a given time. when t=0, 3.25 and 6 (1∕J) the probability of a spin down is 100% in contrast when the probability is 0% that means that the site is in a spin up state ,furthermore the intervals between 0% and 100% exist in a superposition of |1⟩ and |0⟩.*
 ## 🛠️ Tech Stack
 - **Language:** Python 3.x
