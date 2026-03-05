@@ -20,15 +20,15 @@ This project is a comparative study of the dynamics of the spin-½ XXX Heisenber
 
 ![Simulation Plot](visualizations/Simulator3.png)
 
-*Figure 3: Quantum simulation on the Aer Simulator (3 Trotter steps)*
+*Figure 3: Quantum simulation on the Aer Simulator (3 Trotter steps).agrees with the hardware results yet still inaccurate compared  to the exact classical simulation*
 
 ![Simulation Plot](visualizations/Hardware3.png)
 
-*Figure 4: Execution on real IBM Quantum hardware (3 Trotter steps)*
+*Figure 4: Execution on real IBM Quantum hardware (3 Trotter steps). agrees with the hardware results yet still inaccurate to the exact yet still inaccurate compared to the exact classical simulation*
 
 ![Simulation Plot](visualizations/Simulator15.png)
 
-*Figure 5:Quantum simulation on the Aer Simulator (15 Trotter steps).*
+*Figure 5:Quantum simulation on the Aer Simulator (15 Trotter steps). agrees well with the exact classical simultion as a result to a deeper circuit in an ideal inviorment*
 
 ![Simulation Plot](visualizations/Hardware15.png)
 
