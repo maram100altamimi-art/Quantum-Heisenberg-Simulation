@@ -14,6 +14,7 @@ This project implements a classical and quantum-inspired simulation of spin dyna
 *Description: Probability of spin-down occupation over time.*
 
 ![Simulation Plot](lattice.png)
+
 *Description: lattice configeration*
 ## 🛠️ Tech Stack
 - **Language:** Python 3.x
